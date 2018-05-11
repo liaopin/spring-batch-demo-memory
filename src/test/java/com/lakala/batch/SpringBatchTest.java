@@ -40,6 +40,8 @@ public class SpringBatchTest {
         try {
             Map<String, JobParameter> parameters = new HashMap<String, JobParameter>();
             parameters.put(RUN_MONTH_KEY, new JobParameter("2018-05"));
+            parameters.put("filename", new JobParameter("classpath:/users.txt"));
+
             long begin = System.currentTimeMillis();
             JobExecution je = launcher.run((Job) c.getBean("messageJob"), new JobParameters(parameters));
             long end = System.currentTimeMillis();
